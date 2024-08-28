@@ -43,6 +43,7 @@ import com.noxis.notecomposeapp.core.util.TestTags
 import com.noxis.notecomposeapp.features.note.presentation.notes.event.NotesEvent
 import com.noxis.notecomposeapp.features.note.presentation.notes.view.components.OrderSection
 import com.noxis.notecomposeapp.features.note.presentation.notes.viewmodel.NotesViewModel
+import com.noxis.notecomposeapp.navigation.Root
 import com.noxis.notecomposeapp.navigation.Screen
 import kotlinx.coroutines.launch
 
@@ -62,7 +63,7 @@ fun NotesScreen(
         floatingActionButton = {
             FloatingActionButton(
                 onClick = {
-                    navController.navigate(Screen.AddEditNoteScreen.route)
+                    navController.navigate(Root.AddEditNoteScreen())
                 },
                 containerColor = MaterialTheme.colorScheme.primary
             ) {
@@ -124,8 +125,10 @@ fun NotesScreen(
                             .fillMaxWidth()
                             .clickable {
                                 navController.navigate(
-                                    Screen.AddEditNoteScreen.route +
-                                            "?noteId=${note.id}&noteColor=${note.color}"
+                                    Root.AddEditNoteScreen(
+                                        noteId = note.id!!,
+                                        noteColor = note.color
+                                    )
                                 )
                             },
                         onDeleteClick = {
@@ -134,7 +137,7 @@ fun NotesScreen(
                                 val result = snackbarHostState.showSnackbar(
                                     message = "Note deleted",
                                     actionLabel = "Undo",
-                                    duration = SnackbarDuration.Long
+                                    duration = SnackbarDuration.Short
                                 )
                                 if (result == SnackbarResult.ActionPerformed) {
                                     viewModel.onEvent(NotesEvent.RestoreNote)

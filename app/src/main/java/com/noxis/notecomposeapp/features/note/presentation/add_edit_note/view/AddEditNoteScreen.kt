@@ -49,6 +49,7 @@ import kotlinx.coroutines.launch
 fun AddEditNoteScreen(
     navController: NavController,
     noteColor: Int,
+    noteId: Int,
     viewModel: AddEditNoteViewModel = hiltViewModel()
 ) {
     val snackbarHostState = remember { SnackbarHostState() }
@@ -63,6 +64,10 @@ fun AddEditNoteScreen(
     }
 
     LaunchedEffect(key1 = true) {
+        if (noteId != -1) {
+            viewModel.onEvent(AddEditNoteEvent.GetNoteById(noteId))
+        }
+
         viewModel.eventFlow.collectLatest { event ->
             when (event) {
                 is AddEditNoteViewModel.UiEvent.ShowSnackbar -> {

@@ -11,8 +11,10 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
+import androidx.navigation.toRoute
 import com.noxis.notecomposeapp.features.note.presentation.add_edit_note.view.AddEditNoteScreen
 import com.noxis.notecomposeapp.features.note.presentation.notes.view.NotesScreen
+import com.noxis.notecomposeapp.navigation.Root
 import com.noxis.notecomposeapp.navigation.Screen
 import com.noxis.notecomposeapp.ui.theme.NoteComposeAppTheme
 import dagger.hilt.android.AndroidEntryPoint
@@ -30,34 +32,18 @@ class MainActivity : ComponentActivity() {
                     val navController = rememberNavController()
                     NavHost(
                         navController = navController,
-                        startDestination = Screen.NotesScreen.route
+                        startDestination = Root.NotesScreen
                     ) {
-                        composable(route = Screen.NotesScreen.route) {
+                        composable<Root.NotesScreen> {
                             NotesScreen(navController = navController)
                         }
 
-                        composable(
-                            route = Screen.AddEditNoteScreen.route +
-                                    "?noteId={noteId}&noteColor={noteColor}",
-                            arguments = listOf(
-                                navArgument(
-                                    name = "noteId"
-                                ) {
-                                    type = NavType.IntType
-                                    defaultValue = -1
-                                },
-                                navArgument(
-                                    name = "noteColor"
-                                ) {
-                                    type = NavType.IntType
-                                    defaultValue = -1
-                                },
-                            )
-                        ) {
-                            val color = it.arguments?.getInt("noteColor") ?: -1
+                        composable<Root.AddEditNoteScreen> {
+                            val args = it.toRoute<Root.AddEditNoteScreen>()
                             AddEditNoteScreen(
                                 navController = navController,
-                                noteColor = color
+                                noteColor = args.noteColor,
+                                noteId = args.noteId
                             )
                         }
                     }
