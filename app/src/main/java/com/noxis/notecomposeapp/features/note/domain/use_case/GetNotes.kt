@@ -2,8 +2,8 @@ package com.noxis.notecomposeapp.features.note.domain.use_case
 
 import com.noxis.notecomposeapp.features.note.domain.model.Note
 import com.noxis.notecomposeapp.features.note.domain.repository.NoteRepository
-import com.noxis.notecomposeapp.features.note.util.NoteOrder
-import com.noxis.notecomposeapp.features.note.util.OrderType
+import com.noxis.notecomposeapp.features.note.domain.util.NoteOrder
+import com.noxis.notecomposeapp.features.note.domain.util.OrderType
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 
