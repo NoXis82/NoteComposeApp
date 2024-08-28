@@ -42,6 +42,7 @@ import com.noxis.notecomposeapp.core.util.TestTags
 import com.noxis.notecomposeapp.features.note.presentation.notes.event.NotesEvent
 import com.noxis.notecomposeapp.features.note.presentation.notes.view.components.OrderSection
 import com.noxis.notecomposeapp.features.note.presentation.notes.viewmodel.NotesViewModel
+import com.noxis.notecomposeapp.navigation.Screen
 import kotlinx.coroutines.launch
 
 @Composable
@@ -60,7 +61,7 @@ fun NotesScreen(
         floatingActionButton = {
             FloatingActionButton(
                 onClick = {
-//                navController.navigate(Screen.AddEditNoteScreen.route)
+                    navController.navigate(Screen.AddEditNoteScreen.route)
                 },
                 containerColor = MaterialTheme.colorScheme.primary
             ) {
@@ -115,16 +116,16 @@ fun NotesScreen(
             }
             Spacer(modifier = Modifier.height(16.dp))
             LazyColumn(modifier = Modifier.fillMaxSize(), state = lazyListState) {
-                items(state.notes) {note ->
+                items(state.notes) { note ->
                     NoteItem(
                         note = note,
                         modifier = Modifier
                             .fillMaxWidth()
                             .clickable {
-                              //  navController.navigate(
-                                  //  Screen.AddEditNoteScreen.route +
-                                  //          "?noteId=${note.id}&noteColor=${note.color}"
-                             //   )
+                                navController.navigate(
+                                    Screen.AddEditNoteScreen.route +
+                                            "?noteId=${note.id}&noteColor=${note.color}"
+                                )
                             },
                         onDeleteClick = {
                             viewModel.onEvent(NotesEvent.DeleteNote(note))
@@ -133,7 +134,7 @@ fun NotesScreen(
                                     message = "Note deleted",
                                     actionLabel = "Undo"
                                 )
-                                if(result == SnackbarResult.ActionPerformed) {
+                                if (result == SnackbarResult.ActionPerformed) {
                                     viewModel.onEvent(NotesEvent.RestoreNote)
                                 }
                             }
