@@ -132,37 +132,37 @@ fun AddEditNoteScreen(
                             }
                     )
                 }
-                Spacer(modifier = Modifier.height(16.dp))
-                TransparentHintTextField(
-                    text = titleState.text,
-                    hint = titleState.hint,
-                    onValueChange = {
-                        viewModel.onEvent(AddEditNoteEvent.EnteredTitle(it))
-                    },
-                    onFocusChange = {
-                        viewModel.onEvent(AddEditNoteEvent.ChangeTitleFocus(it))
-                    },
-                    isHintVisible = titleState.isHintVisible,
-                    singleLine = true,
-                    textStyle = MaterialTheme.typography.bodyMedium,
-                    testTag = TestTags.TITLE_TEXT_FIELD
-                )
-                Spacer(modifier = Modifier.height(16.dp))
-                TransparentHintTextField(
-                    text = contentState.text,
-                    hint = contentState.hint,
-                    onValueChange = {
-                        viewModel.onEvent(AddEditNoteEvent.EnteredContent(it))
-                    },
-                    onFocusChange = {
-                        viewModel.onEvent(AddEditNoteEvent.ChangeContentFocus(it))
-                    },
-                    isHintVisible = contentState.isHintVisible,
-                    textStyle = MaterialTheme.typography.bodyMedium,
-                    modifier = Modifier.fillMaxHeight(),
-                    testTag = TestTags.CONTENT_TEXT_FIELD
-                )
             }
+            Spacer(modifier = Modifier.height(16.dp))
+            TransparentHintTextField(
+                text = titleState.text,
+                hint = titleState.hint,
+                onValueChange = {
+                    viewModel.onEvent(AddEditNoteEvent.EnteredTitle(it))
+                },
+                onFocusChange = {
+                    viewModel.onEvent(AddEditNoteEvent.ChangeTitleFocus(it))
+                },
+                isHintVisible = titleState.isHintVisible,
+                singleLine = true,
+                textStyle = MaterialTheme.typography.bodyMedium,
+                testTag = TestTags.TITLE_TEXT_FIELD
+            )
+            Spacer(modifier = Modifier.height(16.dp))
+            TransparentHintTextField(
+                text = contentState.text,
+                hint = contentState.hint,
+                onValueChange = {
+                    viewModel.onEvent(AddEditNoteEvent.EnteredContent(it))
+                },
+                onFocusChange = {
+                    viewModel.onEvent(AddEditNoteEvent.ChangeContentFocus(it))
+                },
+                isHintVisible = contentState.isHintVisible,
+                textStyle = MaterialTheme.typography.bodyMedium,
+                modifier = Modifier.fillMaxHeight(),
+                testTag = TestTags.CONTENT_TEXT_FIELD
+            )
         }
     }
 }
