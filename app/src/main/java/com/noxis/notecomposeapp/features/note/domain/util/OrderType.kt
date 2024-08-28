@@ -1,4 +1,4 @@
-package com.noxis.notecomposeapp.features.note.util
+package com.noxis.notecomposeapp.features.note.domain.util
 
 sealed class OrderType {
     data object Ascending: OrderType()
