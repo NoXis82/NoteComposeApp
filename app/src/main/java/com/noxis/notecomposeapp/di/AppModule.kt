@@ -1,6 +1,6 @@
 package com.noxis.notecomposeapp.di
 
-import android.app.Application
+import android.content.Context
 import androidx.room.Room
 import com.noxis.notecomposeapp.features.note.data.local.db.NoteDatabase
 import com.noxis.notecomposeapp.features.note.data.repository.NoteRepositoryImpl
@@ -24,9 +24,9 @@ object AppModule {
 
     @Provides
     @Singleton
-    fun provideNoteDatabase(@ApplicationContext app: Application): NoteDatabase {
+    fun provideNoteDatabase(@ApplicationContext context: Context): NoteDatabase {
         return Room.databaseBuilder(
-            app,
+            context,
             NoteDatabase::class.java,
             NoteDatabase.DATABASE_NAME
         ).build()
