@@ -1,5 +1,8 @@
 [versions]
 agp = "8.5.2"
+
+androidlibrarytest = "1.0.4"
+
 kotlin = "1.9.0"
 coreKtx = "1.13.1"
 junit = "4.13.2"
@@ -18,6 +21,9 @@ serialization = "1.6.3"
 truth = "1.1.3"
 
 [libraries]
+
+androidlibrarytest = { module = "com.github.NoXis82:AndroidLibraryTest", version.ref = "androidlibrarytest" }
+
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
 junit = { group = "junit", name = "junit", version.ref = "junit" }
 androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }

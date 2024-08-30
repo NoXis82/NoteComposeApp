@@ -1,5 +1,6 @@
 package com.noxis.notecomposeapp.features.note.presentation.notes.view
 
+import android.util.Log
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.fadeIn
 import androidx.compose.animation.fadeOut
@@ -39,6 +40,7 @@ import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
+import com.noxis.jetwidgets.components.RecordingButton
 import com.noxis.notecomposeapp.core.util.TestTags
 import com.noxis.notecomposeapp.features.note.presentation.notes.event.NotesEvent
 import com.noxis.notecomposeapp.features.note.presentation.notes.view.components.OrderSection
@@ -61,14 +63,17 @@ fun NotesScreen(
     Scaffold(
         snackbarHost = { SnackbarHost(snackbarHostState) },
         floatingActionButton = {
-            FloatingActionButton(
-                onClick = {
-                    navController.navigate(Root.AddEditNoteScreen())
-                },
-                containerColor = MaterialTheme.colorScheme.primary
-            ) {
-                Icon(imageVector = Icons.Default.Add, contentDescription = "Add note")
+            RecordingButton(size = 80.dp, frequency = 3) {
+                navController.navigate(Root.AddEditNoteScreen())
             }
+//            FloatingActionButton(
+//                onClick = {
+//                    navController.navigate(Root.AddEditNoteScreen())
+//                },
+//                containerColor = MaterialTheme.colorScheme.primary
+//            ) {
+//                Icon(imageVector = Icons.Default.Add, contentDescription = "Add note")
+//            }
         }
     ) { paddingValues ->
 
