@@ -22,7 +22,7 @@ import javax.inject.Provider
 @HiltViewModel
 class AddEditNoteViewModel @Inject constructor(
     private val noteUseCases: Provider<NoteUseCases>,
-    savedStateHandle: SavedStateHandle
+//    savedStateHandle: SavedStateHandle
 ) : ViewModel() {
 
     private val _noteTitle = mutableStateOf(

@@ -1,9 +1,17 @@
 plugins {
-    alias(libs.plugins.android.application)
-    alias(libs.plugins.jetbrains.kotlin.android)
+//    alias(libs.plugins.android.application)
+//    alias(libs.plugins.jetbrains.kotlin.android)
+
+    alias(libs.plugins.noxis.android.application)
+    alias(libs.plugins.noxis.android.compose)
+
     alias(libs.plugins.hilt.android)
     alias(libs.plugins.kotlin.serialization)
     alias(libs.plugins.kapt)
+
+//    alias(libs.plugins.noxis.android.hilt)
+//    id("com.google.devtools.ksp")
+
 }
 
 android {
@@ -21,6 +29,8 @@ android {
         vectorDrawables {
             useSupportLibrary = true
         }
+
+        multiDexEnabled = true
     }
 
     buildTypes {
@@ -54,24 +64,27 @@ android {
 
 dependencies {
 
-    implementation(libs.androidx.core.ktx)
-    implementation(libs.androidx.lifecycle.runtime.ktx)
-    implementation(libs.androidx.activity.compose)
-    implementation(platform(libs.androidx.compose.bom))
-    implementation(libs.androidx.ui)
-    implementation(libs.androidx.ui.graphics)
-    implementation(libs.androidx.ui.tooling.preview)
-    implementation(libs.androidx.material3)
+//    implementation(libs.androidx.core.ktx)
+//    implementation(libs.androidx.lifecycle.runtime.ktx)
+//    implementation(libs.androidx.activity.compose)
+//    implementation(platform(libs.androidx.compose.bom))
+//    implementation(libs.androidx.ui)
+//    implementation(libs.androidx.ui.graphics)
+//    implementation(libs.androidx.ui.tooling.preview)
+//    implementation(libs.androidx.material3)
     //Hilt
     implementation(libs.hilt.android)
     kapt(libs.hilt.android.compiler)
+
+//    ksp(libs.hilt.android.compiler)
     implementation(libs.hilt.navigation.compose)
     //Navigation
     implementation(libs.navigation.compose)
     //Room
     implementation(libs.room.runtime)
     implementation(libs.room.ktx)
-    kapt(libs.room.compiler)
+//    kapt(libs.room.compiler)
+    ksp(libs.room.compiler)
 
     implementation(libs.kotlinx.serialization.json)
 
@@ -83,12 +96,16 @@ dependencies {
     //mockito
     testImplementation(libs.mockito)
     testImplementation(libs.mockito.inline)
-    testImplementation(libs.mockito.core)
+//    testImplementation(libs.mockito.core)
     //
     testImplementation(libs.kotlinx.coroutines.test)
 
 
     implementation(libs.androidlibrarytest)
+
+
+//    implementation(libs.android.desugarJdkLibs)
+
 
     androidTestImplementation(libs.junit)
     androidTestImplementation(libs.truth)

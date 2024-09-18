@@ -1,7 +1,19 @@
 [versions]
 agp = "8.5.2"
 
+#Dependencies of the included build-logic
 androidlibrarytest = "1.0.4"
+androidGradlePlugin = "8.5.2"
+androidDesugarJdkLibs = "1.2.2"
+
+targetSdk = "34"
+compileSdk = "34"
+minSdk = "26"
+jvm = "17"
+androidx-compose-compiler = "1.5.1"
+ksp = "1.9.0-1.0.13"
+
+
 
 kotlin = "1.9.0"
 coreKtx = "1.13.1"
@@ -24,6 +36,7 @@ mockitoVersion = "5.4.0"
 mockitoInlineVersion = "4.0.0"
 mockitoCoreVersion = "5.4.0"
 kotlinxCoroutines = "1.8.1"
+jetbrainsKotlinJvm = "1.9.0"
 
 
 
@@ -45,7 +58,7 @@ mockk-agent = { module = "io.mockk:mockk-agent", version.ref = "mockkVersion" }
 #mockito
 mockito = { module = "org.mockito.kotlin:mockito-kotlin", version.ref = "mockitoVersion" }
 mockito-inline = { module = "org.mockito:mockito-inline", version.ref = "mockitoInlineVersion" }
-mockito-core = { module = "org.mockito.kotlin:mockito-core", version.ref = "mockitoCoreVersion" }
+#mockito-core = { module = "org.mockito.kotlin:mockito-core", version.ref = "mockitoCoreVersion" }
 
 kotlinx-coroutines-test = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-test", version.ref = "kotlinxCoroutines" }
 
@@ -82,10 +95,26 @@ hilt-android-testing = { module = "com.google.dagger:hilt-android-testing", vers
 kotlinx-serialization-json = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version.ref = "serialization"}
 
 
+# Dependencies of the included build-logic
+android-gradlePlugin = { group = "com.android.tools.build", name = "gradle", version.ref = "androidGradlePlugin" }
+kotlin-gradlePlugin = { group = "org.jetbrains.kotlin", name = "kotlin-gradle-plugin", version.ref = "kotlin" }
+android-desugarJdkLibs = { group = "com.android.tools", name = "desugar_jdk_libs", version.ref = "androidDesugarJdkLibs" }
+
+
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
+android-library = { id = "com.android.library", version.ref = "agp" }
+
 jetbrains-kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 androidx-room = { id = "androidx.room", version.ref = "room" }
 hilt-android = { id = "com.google.dagger.hilt.android", version.ref = "hilt" }
 kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
 kapt = { id = "org.jetbrains.kotlin.kapt", version.ref = "kotlin" }
+jetbrains-kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "jetbrainsKotlinJvm" }
+ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
+
+
+noxis-android-library = { id = "noxis.android.library", version = "unspecified" }
+noxis-android-application = { id = "noxis.android.application", version = "unspecified" }
+noxis-android-compose = { id = "noxis.android.compose", version = "unspecified" }
+noxis-android-hilt = { id = "app.android.hilt", version = "unspecified" }

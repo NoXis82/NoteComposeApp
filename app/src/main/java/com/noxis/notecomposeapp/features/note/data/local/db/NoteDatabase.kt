@@ -8,7 +8,8 @@ import com.noxis.notecomposeapp.features.note.domain.model.Note
 
 @Database(
     entities = [Note::class],
-    version = 1
+    version = 1,
+    exportSchema = false
 )
 abstract class NoteDatabase : RoomDatabase() {
 
