@@ -26,7 +26,8 @@ mockitoCoreVersion = "5.4.0"
 kotlinxCoroutines = "1.8.1"
 jetbrainsKotlinJvm = "1.9.0"
 
-
+#Dependencies of the included build-logic
+kotlinCompilerExtensionVersion = "1.5.1"
 
 
 [libraries]
@@ -94,3 +95,8 @@ hilt-android = { id = "com.google.dagger.hilt.android", version.ref = "hilt" }
 kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
 kapt = { id = "org.jetbrains.kotlin.kapt", version.ref = "kotlin" }
 jetbrains-kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "jetbrainsKotlinJvm" }
+
+
+# custom plugins defined
+common-android-application-compose = { id = "gradlePlugins.android.application.compose", version = "unspecified" }
+common-android-application = { id = "gradlePlugins.android.application", version = "unspecified" }
