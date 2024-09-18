@@ -24,5 +24,9 @@ gradlePlugin {
             id = "gradlePlugins.android.hilt"
             implementationClass = "AndroidHiltConventionPlugin"
         }
+        register("androidRoomConventionPlugin") {
+            id = "gradlePlugins.android.room"
+            implementationClass = "AndroidRoomConventionPlugin"
+        }
     }
 }

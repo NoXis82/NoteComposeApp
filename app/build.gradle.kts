@@ -6,6 +6,7 @@ plugins {
     alias(libs.plugins.common.android.application)
     alias(libs.plugins.common.android.application.compose)
     alias(libs.plugins.common.android.hilt)
+    alias(libs.plugins.common.android.room)
 
 //    alias(libs.plugins.hilt.android)
     alias(libs.plugins.kotlin.serialization)
@@ -78,9 +79,9 @@ dependencies {
     implementation(libs.navigation.compose)
 
     //Room
-    implementation(libs.room.runtime)
-    implementation(libs.room.ktx)
-    kapt(libs.room.compiler)
+//    implementation(libs.room.runtime)
+//    implementation(libs.room.ktx)
+//    kapt(libs.room.compiler)
 
     implementation(libs.kotlinx.serialization.json)
 
