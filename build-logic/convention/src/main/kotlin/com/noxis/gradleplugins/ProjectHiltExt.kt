@@ -9,7 +9,7 @@ internal fun Project.configureAndroidHilt(
     commonExtension: CommonExtension<*, *, *, *, *, *>,
 ) {
     if (commonExtension is ApplicationExtension) {
-        pluginManager.apply(libs.findPlugin("hilt-android").get().get().pluginId)
+        pluginManager.apply(libs.findPlugin("hilt.android").get().get().pluginId)
     }
 
 //    pluginManager.apply("com.google.devtools.ksp")
@@ -20,5 +20,6 @@ internal fun Project.configureAndroidHilt(
 //        add("ksp", libs.findLibrary("hilt-android-compiler").get())
         add("kapt", libs.findLibrary("hilt.android.compiler").get())
         add("implementation", libs.findLibrary("hilt.navigation.compose").get())
+        add("kaptAndroidTest", libs.findLibrary("hilt.android.compiler").get())
     }
 }

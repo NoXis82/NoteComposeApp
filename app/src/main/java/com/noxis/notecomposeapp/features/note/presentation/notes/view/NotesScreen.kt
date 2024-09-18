@@ -40,7 +40,6 @@ import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
-import com.noxis.jetwidgets.components.RecordingButton
 import com.noxis.notecomposeapp.core.util.TestTags
 import com.noxis.notecomposeapp.features.note.presentation.notes.event.NotesEvent
 import com.noxis.notecomposeapp.features.note.presentation.notes.view.components.OrderSection

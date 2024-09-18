@@ -9,7 +9,7 @@ class AndroidRoomConventionPlugin : Plugin<Project> {
     override fun apply(target: Project) {
         with(target) {
             extensions.configure<ApplicationExtension> {
-                configureAndroidRoom(this)
+                configureAndroidRoom()
             }
         }
     }

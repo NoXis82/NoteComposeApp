@@ -26,6 +26,8 @@ internal fun Project.configureAndroidCompose(
         add("implementation", platform(bom))
         add("androidTestImplementation", platform(bom))
 
+        add("implementation", libs.findLibrary("navigation.compose").get())
+
         add("implementation", libs.findLibrary("androidx-ui").get())
         add("implementation", libs.findLibrary("androidx-ui-graphics").get())
         add("implementation", libs.findLibrary("androidx-material3").get())

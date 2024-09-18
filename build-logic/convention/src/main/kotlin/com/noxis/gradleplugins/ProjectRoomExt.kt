@@ -5,7 +5,7 @@ import org.gradle.api.Project
 import org.gradle.kotlin.dsl.dependencies
 
 internal fun Project.configureAndroidRoom(
-    commonExtension: CommonExtension<*, *, *, *, *, *>,
+//    commonExtension: CommonExtension<*, *, *, *, *, *>,
 ) {
     pluginManager.apply(libs.findPlugin("kapt").get().get().pluginId)
 
