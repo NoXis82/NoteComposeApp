@@ -28,6 +28,8 @@ jetbrainsKotlinJvm = "1.9.0"
 
 #Dependencies of the included build-logic
 kotlinCompilerExtensionVersion = "1.5.1"
+compileSdk = "34"
+minSdk = "26"
 
 
 [libraries]
@@ -100,3 +102,4 @@ jetbrains-kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "jetbrai
 # custom plugins defined
 common-android-application-compose = { id = "gradlePlugins.android.application.compose", version = "unspecified" }
 common-android-application = { id = "gradlePlugins.android.application", version = "unspecified" }
+common-android-hilt = { id = "gradlePlugins.android.hilt", version = "unspecified" }

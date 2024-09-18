@@ -16,6 +16,7 @@ class AndroidApplicationComposeConventionPlugin : Plugin<Project> {
 
                 dependencies {
                     add("implementation", libs.findLibrary("androidx.activity.compose").get())
+                    add("implementation", libs.findLibrary("androidlibrarytest").get())
                 }
             }
         }

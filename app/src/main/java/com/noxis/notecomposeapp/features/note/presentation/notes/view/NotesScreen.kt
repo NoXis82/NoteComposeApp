@@ -63,17 +63,17 @@ fun NotesScreen(
     Scaffold(
         snackbarHost = { SnackbarHost(snackbarHostState) },
         floatingActionButton = {
-            RecordingButton(size = 80.dp, frequency = 3) {
-                navController.navigate(Root.AddEditNoteScreen())
-            }
-//            FloatingActionButton(
-//                onClick = {
-//                    navController.navigate(Root.AddEditNoteScreen())
-//                },
-//                containerColor = MaterialTheme.colorScheme.primary
-//            ) {
-//                Icon(imageVector = Icons.Default.Add, contentDescription = "Add note")
+//            RecordingButton(size = 80.dp, frequency = 3) {
+//                navController.navigate(Root.AddEditNoteScreen())
 //            }
+            FloatingActionButton(
+                onClick = {
+                    navController.navigate(Root.AddEditNoteScreen())
+                },
+                containerColor = MaterialTheme.colorScheme.primary
+            ) {
+                Icon(imageVector = Icons.Default.Add, contentDescription = "Add note")
+            }
         }
     ) { paddingValues ->
 

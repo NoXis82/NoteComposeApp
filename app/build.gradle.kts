@@ -1,27 +1,33 @@
 plugins {
-    alias(libs.plugins.android.application)
-    alias(libs.plugins.jetbrains.kotlin.android)
-    alias(libs.plugins.hilt.android)
+//    alias(libs.plugins.android.application)
+//    alias(libs.plugins.jetbrains.kotlin.android)
+
+    // other plugins
+    alias(libs.plugins.common.android.application)
+    alias(libs.plugins.common.android.application.compose)
+    alias(libs.plugins.common.android.hilt)
+
+//    alias(libs.plugins.hilt.android)
     alias(libs.plugins.kotlin.serialization)
-    alias(libs.plugins.kapt)
+//    alias(libs.plugins.kapt)
 }
 
 android {
     namespace = "com.noxis.notecomposeapp"
-    compileSdk = 34
+//    compileSdk = 34
 
-    defaultConfig {
-        applicationId = "com.noxis.notecomposeapp"
-        minSdk = 26
-        targetSdk = 34
-        versionCode = 1
-        versionName = "1.0"
-
-        testInstrumentationRunner = "com.noxis.notecomposeapp.HiltTestRunner"
-        vectorDrawables {
-            useSupportLibrary = true
-        }
-    }
+//    defaultConfig {
+//        applicationId = "com.noxis.notecomposeapp"
+//        minSdk = 26
+//        targetSdk = 34
+//        versionCode = 1
+//        versionName = "1.0"
+//
+//        testInstrumentationRunner = "com.noxis.notecomposeapp.HiltTestRunner"
+//        vectorDrawables {
+//            useSupportLibrary = true
+//        }
+//    }
 
     buildTypes {
         release {
@@ -32,19 +38,19 @@ android {
             )
         }
     }
-    compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
-    }
-    kotlinOptions {
-        jvmTarget = "1.8"
-    }
-    buildFeatures {
-        compose = true
-    }
-    composeOptions {
-        kotlinCompilerExtensionVersion = "1.5.1"
-    }
+//    compileOptions {
+//        sourceCompatibility = JavaVersion.VERSION_1_8
+//        targetCompatibility = JavaVersion.VERSION_1_8
+//    }
+//    kotlinOptions {
+//        jvmTarget = "1.8"
+//    }
+//    buildFeatures {
+//        compose = true
+//    }
+//    composeOptions {
+//        kotlinCompilerExtensionVersion = "1.5.1"
+//    }
     packaging {
         resources {
             excludes += "/META-INF/{AL2.0,LGPL2.1}"
@@ -54,19 +60,19 @@ android {
 
 dependencies {
 
-    implementation(libs.androidx.core.ktx)
-    implementation(libs.androidx.lifecycle.runtime.ktx)
-    implementation(libs.androidx.activity.compose)
-    implementation(platform(libs.androidx.compose.bom))
-    implementation(libs.androidx.ui)
-    implementation(libs.androidx.ui.graphics)
-    implementation(libs.androidx.ui.tooling.preview)
-    implementation(libs.androidx.material3)
+//    implementation(libs.androidx.core.ktx)
+//    implementation(libs.androidx.lifecycle.runtime.ktx)
+//    implementation(libs.androidx.activity.compose)
+//    implementation(platform(libs.androidx.compose.bom))
+//    implementation(libs.androidx.ui)
+//    implementation(libs.androidx.ui.graphics)
+//    implementation(libs.androidx.ui.tooling.preview)
+//    implementation(libs.androidx.material3)
 
     //Hilt
-    implementation(libs.hilt.android)
-    kapt(libs.hilt.android.compiler)
-    implementation(libs.hilt.navigation.compose)
+//    implementation(libs.hilt.android)
+//    kapt(libs.hilt.android.compiler)
+//    implementation(libs.hilt.navigation.compose)
 
     //Navigation
     implementation(libs.navigation.compose)
@@ -89,10 +95,7 @@ dependencies {
     testImplementation(libs.mockito.core)
     //
     testImplementation(libs.kotlinx.coroutines.test)
-
-
-    implementation(libs.androidlibrarytest)
-
+//    implementation(libs.androidlibrarytest)
     androidTestImplementation(libs.junit)
     androidTestImplementation(libs.truth)
     androidTestImplementation(libs.androidx.junit)
