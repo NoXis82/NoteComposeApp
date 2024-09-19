@@ -24,8 +24,12 @@ mockitoVersion = "5.4.0"
 mockitoInlineVersion = "4.0.0"
 mockitoCoreVersion = "5.4.0"
 kotlinxCoroutines = "1.8.1"
+jetbrainsKotlinJvm = "1.9.0"
 
-
+#Dependencies of the included build-logic
+kotlinCompilerExtensionVersion = "1.5.1"
+compileSdk = "34"
+minSdk = "26"
 
 
 [libraries]
@@ -43,9 +47,9 @@ mockk-android = { module = "io.mockk:mockk-android", version.ref = "mockkVersion
 mockk-agent = { module = "io.mockk:mockk-agent", version.ref = "mockkVersion" }
 
 #mockito
-mockito = { module = "org.mockito.kotlin:mockito-kotlin", version.ref = "mockitoVersion" }
-mockito-inline = { module = "org.mockito:mockito-inline", version.ref = "mockitoInlineVersion" }
-mockito-core = { module = "org.mockito.kotlin:mockito-core", version.ref = "mockitoCoreVersion" }
+#mockito = { module = "org.mockito.kotlin:mockito-kotlin", version.ref = "mockitoVersion" }
+#mockito-inline = { module = "org.mockito:mockito-inline", version.ref = "mockitoInlineVersion" }
+#mockito-core = { module = "org.mockito.kotlin:mockito-core", version.ref = "mockitoCoreVersion" }
 
 kotlinx-coroutines-test = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-test", version.ref = "kotlinxCoroutines" }
 
@@ -81,6 +85,9 @@ hilt-android-testing = { module = "com.google.dagger:hilt-android-testing", vers
 
 kotlinx-serialization-json = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version.ref = "serialization"}
 
+# Dependencies of the included build-logic
+android-gradlePlugin = { group = "com.android.tools.build", name = "gradle", version.ref = "agp" }
+kotlin-gradlePlugin = { group = "org.jetbrains.kotlin", name = "kotlin-gradle-plugin", version.ref = "kotlin" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
@@ -89,3 +96,11 @@ androidx-room = { id = "androidx.room", version.ref = "room" }
 hilt-android = { id = "com.google.dagger.hilt.android", version.ref = "hilt" }
 kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
 kapt = { id = "org.jetbrains.kotlin.kapt", version.ref = "kotlin" }
+jetbrains-kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "jetbrainsKotlinJvm" }
+
+
+# custom plugins defined
+common-android-application-compose = { id = "gradlePlugins.android.application.compose", version = "unspecified" }
+common-android-application = { id = "gradlePlugins.android.application", version = "unspecified" }
+common-android-hilt = { id = "gradlePlugins.android.hilt", version = "unspecified" }
+common-android-room = { id = "gradlePlugins.android.room", version = "unspecified" }
